@@ -15,7 +15,7 @@
   width: 40%;
   height: 80%;
   background-color: #F89174;
-  background-image: url(top_image.jpg);
+  background-image: image-url("top_image.jpg");
   background-size: cover;
 }
 
@@ -148,7 +148,7 @@
 .side-bar {
   background-color: aqua;
   width: 20%;
-  background-image: url(top_image.jpg);
+  background-image: image-url("top_image.jpg");
   background-size: cover;
 }
 
