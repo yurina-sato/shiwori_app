@@ -119,7 +119,9 @@
 | name        | string     | null: false |
 | text        | text       | null: false |
 | destination | string     | null: false |
-| days        | integer    | null: false |
+| start_day   | date       | null: false |
+| finish_day  | date       | null: false |
+
 
 ### Association
 - has_many :lists
