@@ -176,7 +176,7 @@ HTML, CSS
 MySQL
 
 ### インフラ
-AWS(S3)　※画像サーバー
+AWS(S3)　※画像サーバー  
 Heroku　※本番環境
 
 ### ソース管理
