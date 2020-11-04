@@ -1,0 +1,11 @@
+<h1>しおり詳細</h1>
+<%= link_to '編集', edit_trip_path(@trip.id) %>
+<%= link_to '削除', trip_path(@trip.id), method: :delete %>
+
+<% @trip.user_ids.each do |member_id| %>
+  <% @member = User.find(member_id) %>
+  <%= @member.nickname %>
+<% end %>
+
+
+
