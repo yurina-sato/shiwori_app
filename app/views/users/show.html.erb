@@ -5,17 +5,32 @@
         <h2><%= current_user.nickname %></h2>
       </div>
       <div class="side-bar-lower">
-        <ul>
-          <li><%= link_to 'しおり一覧', "#" %></li>
-          <li><%= link_to '設定', "#" %></li>
-          <% if user_signed_in? %>          
+        <% if user_signed_in? %> 
+          <ul>
+            <li><%= link_to 'しおり作成', new_trip_path %></li>
+            <li><%= link_to '設定', "#" %></li>
             <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
-          <% end %>
-        </ul>
+          </ul>
+        <% end %>
       </div>
     </div>
     <div class="main-container">
-      <h1>マイページ/root_path</h1>
+      <h1>しおり一覧</h1>
+      <ul class="trip-lists">
+        <% @my_trips.each do |trip| %>
+          <li class='list'>
+            <%= link_to trip_path(trip.id) do %>
+              <div class="trip-info">
+                <p><strong><%= trip.name %></strong></p>
+                <p>Go to : <%= trip.destination %></p>
+                <p><%= trip.start_day %></p>
+                <p>↓</p>
+                <p><%= trip.finish_day %></p>
+              </div>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
     </div>
   </div>
 

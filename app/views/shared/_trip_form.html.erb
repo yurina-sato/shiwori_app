@@ -1,0 +1,92 @@
+<div class="trip-main">
+  <%# @tripの中身でcreateとupdateを自動で判定 %>
+  <%= form_with model: @trip, local: true do |f| %>
+
+    <%= render 'shared/error_messages', model: f.object %>
+
+    <div class="form-title">
+      しおり名
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_field :name, class:"trip-text", id:"trip-name", placeholder:"例：卒業旅行" %>
+
+    <div class="form-title">
+      目的地
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_field :destination, class:"trip-text", id:"trip-destination", placeholder:"例：沖縄" %>
+
+    <div class="form-title">
+      しおり概要
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_area :text, class:"trip-text", id:"trip-info", placeholder:"例：いつものメンバーで！" %>
+
+    <div class="date-input">
+      <div class="start-date-input">
+        <div class="form-title">
+          開始日
+          <span class="indispensable">必須</span>
+        </div>
+        <div class='input-date-wrap'>
+          <%= raw sprintf(
+                  f.date_select(
+                    :start_day,
+                    class:'select-date',
+                    id:"start-date",
+                    use_month_numbers: true,
+                    prompt:'--',
+                    start_year: Time.now.year,
+                    end_year: (Time.now.year + 5),
+                    date_separator: '%s'),
+                  "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+        </div>
+      </div>
+
+      <div class="finish-date-input">
+        <div class="form-title">
+          終了日
+          <span class="indispensable">必須</span>
+        </div>
+        <div class='input-date-wrap'>
+          <%= raw sprintf(
+                  f.date_select(
+                    :finish_day,
+                    class:'select-date',
+                    id:"finish-date",
+                    use_month_numbers: true,
+                    prompt:'--',
+                    start_year: Time.now.year,
+                    end_year: (Time.now.year + 5),
+                    date_separator: '%s'),
+                  "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-title">
+      参加メンバー
+      <span class="indispensable">必須</span><br>
+      ※複数選択可(CtrlやShiftキーを押しながら選択してください)
+    </div>
+
+    <div class="trip-members">
+      <%= f.collection_select(:user_ids, User.where.not(id: current_user.id), :id, :nickname, {}, {multiple: true, size: 5}) %>
+      <input name="trip[user_ids][]" type="hidden" value=<%= current_user.id %>> 
+    </div>
+
+    <%# 作成・編集ボタン %>
+    <% if @trip.id != nil %>
+      <div class="create-btn-contents">
+        <%= f.submit "編集する" ,class:"create-btn" %>
+        <%=link_to 'もどる', root_path, class:"back-btn" %>
+      </div>
+    <% else %>
+      <div class="create-btn-contents">
+        <%= f.submit "作成する" ,class:"create-btn" %>
+        <%=link_to 'もどる', root_path, class:"back-btn" %>
+      </div>
+    <% end %>
+        
+  <% end %>
+</div>

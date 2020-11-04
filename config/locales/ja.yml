@@ -1,0 +1,23 @@
+ja:
+  time:
+      formats:
+        default: "%Y/%m/%d %H:%M:%S"
+  activerecord:
+    models:
+      user: ユーザ
+      trip: しおり
+    attributes:
+      user:
+        nickname: ニックネーム
+      trip:
+        name: しおり名
+        text: しおりの概要
+        destination: 目的地
+        start_day: 開始日
+        finish_day: 終了日
+        users: 参加メンバー
+    # errors:
+    #   messages:
+    #     full-width_characters: "は全角(漢字・かな・カナ)で入力してください"
+
+
