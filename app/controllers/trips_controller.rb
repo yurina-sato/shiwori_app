@@ -4,7 +4,8 @@ class TripsController < ApplicationController
 
 
   def show
-
+    @trip = Trip.find(params[:id])
+    @schedules = @trip.schedules
   end
 
   def new
@@ -19,6 +20,9 @@ class TripsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
   end
 
   def update
@@ -50,6 +54,5 @@ class TripsController < ApplicationController
   def move_to_root
     redirect_to root_path unless user_signed_in? && @trip.user_ids.include?(current_user.id)
   end
-
 
 end
