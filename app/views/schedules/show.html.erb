@@ -1,0 +1,55 @@
+<div class="backscreen">
+  <div class="wrapper">
+    <div class="side-bar">
+      <div class="side-bar-upper">
+        <h2><%= current_user.nickname %></h2>
+      </div>
+      <div class="side-bar-lower">
+        <% if user_signed_in? && @trip.user_ids.include?(current_user.id) %> 
+          <ul>
+            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
+            <li><%= link_to 'アカウント設定', "#" %></li>
+            <li><%= link_to 'イベント作成', "#" %></li>
+            <li><%= link_to 'スケジュール編集', edit_trip_schedule_path(@trip.id) %></li>
+            <li><%= link_to 'スケジュール削除', trip_schedule_path(@trip.id, @schedule.id), method: :delete %></li>
+            <li><%= link_to 'しおり詳細へ戻る', trip_path(@trip.id) %></li>
+            <li><%= link_to 'しおり一覧へ戻る', root_path %></li>
+          </ul>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="main-container">
+      <div class="schedule-titile">
+        <h1><%= @schedule.name %></h1>
+        <h3><%= @trip.name %></h3>
+      </div>
+      
+      <div class="schedule-details">
+
+        <div class="schedule-details-items">
+          <div class="details-title">日付</div>
+          <p><%= @schedule.day %></p>
+        </div>
+
+        <div class="schedule-details-items">
+          <div class="details-title">概要</div>
+          <p><%= @schedule.text %></p>
+        </div>
+        
+        <div class="schedule-details-items">
+          <div class="details-title">この日の金額/人</div>
+          <p>イベントのprice合計して割る</p>
+        </div>
+      </div>
+
+      
+
+      <div class="events-container">
+        イベントが時系列で並ぶ
+      </div>
+    </div>
+
+  </div>
+</div>
+

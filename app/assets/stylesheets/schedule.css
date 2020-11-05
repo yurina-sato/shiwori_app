@@ -1,0 +1,107 @@
+/* スケジュール作成・編集フォーム */
+.new-schedule-content {
+  width: 90%;
+  height: 90%;  
+  background-color: white;
+  overflow: auto;
+
+}
+
+.schedule-title {
+  margin: 30px 0;
+  padding: 10px;
+  text-align: center;
+}
+
+
+.schedule-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.schedule-text {
+  width: 100%;
+  padding: 16px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  resize: none;
+}
+
+/* ボタン */
+.create-btn-contents {
+  display: flex;
+  justify-content: space-around;
+  padding: 30px;
+}
+
+.create-btn {
+  display: inline-block;
+  height: 50px;
+  padding: 0 30px;
+  line-height: 50px;
+  letter-spacing: 1px;
+  text-align: center;
+  border: none;
+  border-radius: 2px;
+  margin: 20px;
+  color: #fff;
+  background-color: #F89174;
+}
+
+.back-btn {
+  display: inline-block;
+  height: 50px;
+  padding: 0 30px;
+  line-height: 50px;
+  letter-spacing: 1px;
+  text-align: center;
+  border: none;
+  border-radius: 2px;
+  margin: 20px;
+  color: #fff;
+  background-color: #aaa;  
+  text-decoration: none;
+ 
+}
+
+
+/* スケジュール詳細ページ */
+
+.schedule-titile {
+  display: flex;
+  width: 90%;
+  min-width: 450px;
+}
+
+.schedule-titile h3 {
+  margin-top: 10px;
+  padding: 20px;
+  color: gray;
+}
+
+.schedule-details {
+  width: 90%;
+  min-width: 450px;
+  margin: 20px;
+}
+
+.schedule-details-items {
+  display: flex;
+}
+
+.schedule-details-items p {
+  margin: 10px;
+  padding: 5px;
+}
+
+.events-container {
+  width: 90%;
+  min-width: 450px;
+  margin: 20px;
+  height: 500px;
+  background-color: aquamarine;
+  border-top: thin dotted #333333;
+  border-bottom: thin dotted #333333;
+}
