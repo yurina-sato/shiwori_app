@@ -23,6 +23,8 @@
   text-align: center;
 }
 
+
+/* しおり作成・編集フォーム */
 .trip-main {
   display: flex;
   justify-content: center;
@@ -122,4 +124,49 @@
 /* エラー時のレイアウト崩れを調整 */
 .field_with_errors {
   display: contents;
+}
+
+
+/* しおり詳細ページ */
+
+.trip-details {
+  width: 90%;
+  margin: 20px;
+}
+
+.trip-details-items {
+  display: flex;
+}
+
+.details-title {
+  background-color: #F89174;
+  color: #FFF;
+  width: 150px;
+  height: 100%;
+  margin: 5px;
+  padding: 10px;
+  text-align: center;
+  border-radius: 2px;
+
+}
+
+
+.trip-details-items p {
+  margin: 10px;
+  padding: 5px;
+}
+
+.schedules-container {
+  width: 90%;
+  margin: 20px;
+  height: 300px;
+  background-color: burlywood;
+}
+
+
+.lists-container {
+  width: 90%;
+  margin: 20px;
+  height: 300px;
+  background-color: coral;
 }

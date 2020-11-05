@@ -7,9 +7,9 @@
       <div class="side-bar-lower">
         <% if user_signed_in? %> 
           <ul>
-            <li><%= link_to 'しおり作成', new_trip_path %></li>
-            <li><%= link_to '設定', "#" %></li>
             <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
+            <li><%= link_to 'アカウント設定', "#" %></li>
+            <li><%= link_to 'しおり作成', new_trip_path %></li>
           </ul>
         <% end %>
       </div>
