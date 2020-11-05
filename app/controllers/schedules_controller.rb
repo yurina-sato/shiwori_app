@@ -42,7 +42,7 @@ class SchedulesController < ApplicationController
 
   private
   def schedule_params
-    params.require(:schedule).permit(:name, :text).merge(trip_id: params[:trip_id])
+    params.require(:schedule).permit(:name, :text, :day).merge(trip_id: params[:trip_id])
   end
 
   def set_trip
