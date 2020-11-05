@@ -150,6 +150,7 @@
 .side-bar {
   background-color: aqua;
   width: 20%;
+  min-width: 220px;
   background-image: image-url("top_image.jpg");
   background-size: cover;
   
@@ -219,9 +220,10 @@
   flex-wrap: wrap;
   align-items: center;
   padding: 10px;
+  min-width: 450px;
 }
 
-.list {
+.trip-list {
   list-style: none;
   background: -moz-linear-gradient(top, #FFC778 30%, #F89174 60%, #748af8);
   background: -webkit-linear-gradient(top, #FFC778 30%, #F89174 60%, #748af8);

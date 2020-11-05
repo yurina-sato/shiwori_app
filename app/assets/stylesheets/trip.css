@@ -31,10 +31,6 @@
   align-items: center;
 }
 
-.form {
-  margin: 10px;
-}
-
 .form-title {
   margin-top: 10px;
 
@@ -110,7 +106,7 @@
  
 }
 
-/* 必須アイコン */
+/* 必須アイコン共通 */
 .indispensable {
   background: #ec5126;
   margin-left: 8px;
@@ -128,9 +124,9 @@
 
 
 /* しおり詳細ページ */
-
 .trip-details {
   width: 90%;
+  min-width: 450px;
   margin: 20px;
 }
 
@@ -141,7 +137,7 @@
 .details-title {
   background-color: #F89174;
   color: #FFF;
-  width: 150px;
+  min-width: 150px;
   height: 100%;
   margin: 5px;
   padding: 10px;
@@ -150,7 +146,6 @@
 
 }
 
-
 .trip-details-items p {
   margin: 10px;
   padding: 5px;
@@ -158,14 +153,53 @@
 
 .schedules-container {
   width: 90%;
+  min-width: 450px;
   margin: 20px;
-  height: 300px;
-  background-color: burlywood;
+  border-top: thin dotted #333333;
+  border-bottom: thin dotted #333333;
+
 }
 
+.schedule-lists {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 10px;
+}
+
+.schedule-list {
+  list-style: none;
+  background-color: #FFC778;
+  border-radius: 10px;
+  width: 180px;
+  height: 180px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.schedule-info {
+  color: #FFF;
+}
+
+.schedule-name {
+  font-size: 30px;
+}
+
+.schedule-name :hover {
+  color: #d65f4c;
+  
+}
+
+.icon-name {
+  font-size: 20px;
+  text-align: right;
+  margin-top: 70px;
+
+}
 
 .lists-container {
   width: 90%;
+  min-width: 450px;
   margin: 20px;
   height: 300px;
   background-color: coral;

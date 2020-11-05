@@ -18,7 +18,7 @@
       <h1>しおり一覧</h1>
       <ul class="trip-lists">
         <% @my_trips.each do |trip| %>
-          <li class='list'>
+          <li class='trip-list'>
             <%= link_to trip_path(trip.id) do %>
               <div class="trip-info">
                 <p><strong><%= trip.name %></strong></p>
