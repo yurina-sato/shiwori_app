@@ -110,7 +110,7 @@
 ### Association
 - has_many :trip_users
 - has_many :trips, through: :trip_users
-- has_many :message
+<!-- - has_many :message -->
 
 
 ## tripsテーブル
@@ -126,7 +126,7 @@
 ### Association
 - has_many :lists
 - has_many :schedules
-- has_one :room
+<!-- - has_one :room -->
 - has_many :trip_users
 - has_many :users, through: :trip_users
 
@@ -143,11 +143,12 @@
 
 
 ## schedulesテーブル
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |
-| name    | string     | null: false                    |
-| text    | text       | null: false                    |
-| trip_id | references | null: false, foreign_key: true |
+| Column    | Type       | Options                        |
+| --------- | ---------- | ------------------------------ |
+| name      | string     | null: false                    |
+| day       | date       | null: false                    |
+| text      | text       | null: false                    |
+| trip      | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :trip
@@ -195,7 +196,7 @@
 ### Association
 - belongs_to :list
 
-
+<!-- 
 ## roomsテーブル
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
@@ -218,7 +219,7 @@
 ### Association
 - belongs_to :room
 - belongs_to :user
-- has_one_attached :image
+- has_one_attached :image -->
 
 # ローカルでの動作方法
 git cloneしてから、ローカルで動作をさせるまでに必要なコマンドを記述
