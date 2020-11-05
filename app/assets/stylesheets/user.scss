@@ -139,7 +139,7 @@
   font-size: 13px;
 }
 
-/* マイページ(root_path) */
+/* マイページ(root_path)などのサイドバー */
 .wrapper {
   width: 90%;
   height: 90%;
@@ -150,8 +150,10 @@
 .side-bar {
   background-color: aqua;
   width: 20%;
+  min-width: 220px;
   background-image: image-url("top_image.jpg");
   background-size: cover;
+  
 }
 
 .side-bar-upper {
@@ -160,6 +162,7 @@
   margin: 5px auto;
   padding: 5px;
   background-color: rgba(255, 255, 255, 0.5);
+  overflow: auto;
 }
 
 .side-bar-upper h2 {
@@ -173,10 +176,12 @@
   width: 90%;
   height: calc(95% - 50px);
   background-color: rgba(255, 255, 255, 0.5);
+  overflow: auto;
 }
 
 .side-bar-lower ul {
   padding: 10px;
+  
 }
 
 
@@ -196,13 +201,13 @@
   color: #F89174; 
 }
 
+/* マイページ(root_path)などのメイン */
 .main-container {
   background-color: white;
   width: 80%;
   overflow: auto;
 
 }
-
 
 /* マイページのしおり一覧 */
 .main-container h1 {
@@ -213,12 +218,12 @@
 .trip-lists {
   display: flex;
   flex-wrap: wrap;
-  // justify-content: space-between;
   align-items: center;
   padding: 10px;
+  min-width: 450px;
 }
 
-.list {
+.trip-list {
   list-style: none;
   background: -moz-linear-gradient(top, #FFC778 30%, #F89174 60%, #748af8);
   background: -webkit-linear-gradient(top, #FFC778 30%, #F89174 60%, #748af8);

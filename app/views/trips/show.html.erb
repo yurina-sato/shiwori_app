@@ -1,11 +1,78 @@
-<h1>しおり詳細</h1>
-<%= link_to '編集', edit_trip_path(@trip.id) %>
-<%= link_to '削除', trip_path(@trip.id), method: :delete %>
+<div class="backscreen">
+  <div class="wrapper">
+    <div class="side-bar">
+      <div class="side-bar-upper">
+        <h2><%= current_user.nickname %></h2>
+      </div>
+      <div class="side-bar-lower">
+        <% if user_signed_in? && @trip.user_ids.include?(current_user.id) %> 
+          <ul>
+            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
+            <li><%= link_to 'アカウント設定', "#" %></li>
+            <li><%= link_to 'スケジュール作成', new_trip_schedule_path(@trip.id) %></li>
+            <li><%= link_to 'リスト作成', "#" %></li>
+            <li><%= link_to 'しおり編集', edit_trip_path(@trip.id) %></li>
+            <li><%= link_to 'しおり削除', trip_path(@trip.id), method: :delete %></li>
+            <li><%= link_to 'しおり一覧へ戻る', root_path %></li>
+          </ul>
+        <% end %>
+      </div>
+    </div>
 
-<% @trip.user_ids.each do |member_id| %>
-  <% @member = User.find(member_id) %>
-  <%= @member.nickname %>
-<% end %>
+    <div class="main-container">
+      <h1><%= @trip.name %></h1>
+      <div class="trip-details">
+        <div class="trip-details-items">
+          <div class="details-title">概要</div>
+          <p><%= @trip.text %></p>
+        </div>
+        <div class="trip-details-items">
+          <div class="details-title">目的地</div>
+          <p><%= @trip.destination %></p>
+        </div>
+        <div class="trip-details-items">
+          <div class="details-title">旅行期間</div>
+          <p><%= @trip.start_day %> 〜 <%= @trip.finish_day %></p>
+        </div>
+        <div class="trip-details-items">
+          <div class="details-title">参加メンバー</div>
+          <p>
+            <% @trip.user_ids.each do |member_id| %>
+              <% @member = User.find(member_id) %>
+              <%= @member.nickname %>
+            <% end %>
+          </p>
+        </div>
+        
+      </div>
 
 
+      <div class="schedules-container">
+        <ul class="schedule-lists">
+          <% @schedules.each do |schedule| %>
+            <li class='schedule-list'>
+              <%= link_to trip_schedule_path(@trip.id, schedule.id) do %>
+                <div class="schedule-info">
+                  <p class="schedule-name"><strong><%= schedule.name %></strong></p>
+                  <p class="icon-name">schedule</p>
+                </div>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>   
+      </div>
+
+
+      <div class="lists-container">
+        <h3>リスト一覧</h3>
+        <ul class="list-lists">
+        </ul>
+      </div>
+
+
+
+    </div>
+
+  </div>
+</div>
 
