@@ -13,10 +13,12 @@ class EventsController < ApplicationController
   end
 
   def create
+    # binding.pry
     @event = Event.new(event_params)
     if @event.save
       redirect_to trip_schedule_path(@trip.id, @schedule.id), notice: 'イベントを作成しました。'
     else
+      @event.image = nil # 画像プレビューを空にする
       render :new
     end
   end
@@ -43,7 +45,7 @@ class EventsController < ApplicationController
 
   private
   def event_params
-    params.require(:event).permit(:name, :text, :day, :start_time, :finish_time, :place, :url, :price).merge(schedule_id: params[:schedule_id])
+    params.require(:event).permit(:name, :text, :day, :start_time, :finish_time, :place, :url, :price, :image).merge(schedule_id: params[:schedule_id])
   end
 
   def set_trip
