@@ -5,6 +5,8 @@ class SchedulesController < ApplicationController
 
 
   def show
+    @schedule = Schedule.find(params[:id])
+    @events = @schedule.events.order('start_time ASC')
   end
 
   def new
