@@ -66,8 +66,17 @@
                         <% end %>
                       </p>
                     </div>
-                    <p class="event-info-place"><%= event.place %></p>
-                    <p class="event-info-text"><%= event.text %></p>
+                    <div class="event-info-right-lower">
+                      <div>
+                        <p class="event-info-place"><%= event.place %></p>
+                        <p class="event-info-text"><%= event.text %></p>
+                      </div>
+                      <div class="event-image-icon">
+                        <% if event.image.attached? %>
+                          <i class="fas fa-camera fa-2x"></i>
+                        <% end %>
+                      </div>
+                    </div>
                   </div>
                 </div>
               <% end %>
