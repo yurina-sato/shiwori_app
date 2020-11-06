@@ -83,6 +83,13 @@
       <%= f.text_field :price, class:"event-text", id:"event-price", placeholder:"例：15000" %>
 
 
+      <div class="form-title">
+        写真
+      </div>
+      <%= f.file_field :image, class: 'hidden', id:"event-image" %>
+      <div id="image-preview">
+        <%= image_tag @event.image, id: 'event-img' if @event.image.attached? %>
+      </div> 
 
       <%# 作成ボタン %>
       <div class="create-btn-contents">
