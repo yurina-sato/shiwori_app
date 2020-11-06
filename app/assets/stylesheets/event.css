@@ -34,6 +34,16 @@
   resize: none;
 }
 
+.image-preview {
+  width: 100%;
+  background-color: aqua;
+}
+
+img {
+  width: 350px;
+  height: 250px;
+}
+
 /* ボタン */
 .create-btn-contents {
   display: flex;
@@ -141,3 +151,4 @@
   background-color: #F89174;
   color: #fff;
 }
+
