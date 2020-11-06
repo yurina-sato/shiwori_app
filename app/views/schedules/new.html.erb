@@ -4,6 +4,9 @@
       <h1>新規スケジュールページ作成</h1>
     </div>
 
+    <div class="trip-days">
+      <h5>旅行日程：<%= @trip.start_day %> 〜 <%= @trip.finish_day %></h5>
+    </div>
 
     <div class="schedule-main">
     <%= form_with model: [@trip, @schedule], url: trip_schedules_path(@trip.id), local: true do |f| %>
