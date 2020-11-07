@@ -159,11 +159,11 @@
 | Column      | Type       | Options                        |
 | ----------- | ---------- | ------------------------------ |
 | name        | string     | null: false                    |
-| text        | text       | null: false                    |
-| date        | date       | null: false                    |
+| text        | text       |                                |
+| day         | date       | null: false                    |
 | start_time  | time       | null: false                    |
 | finish_time | time       | null: false                    |
-| place       | text       | null: false                    |
+| place       | text       |                                |
 | url         | text       |                                |
 | price       | integer    |                                |
 | schedule    | references | null: false, foreign_key: true |
