@@ -1,21 +1,30 @@
 $(function(){
-  fileField = $('#event-image')
-  // 選択された画像を取得し表示
-  fileField.on('change', fileField, function(e) {
-    var file = e.target.files[0]
-    var reader = new FileReader(),
-    $preview = $("#image-preview");
-    reader.onload = (function(file) {
-      return function(e) {
-        $preview.empty();
-        $preview.append($('<img>').attr({
-          src: e.target.result,
-          width: "30%",
-          class: "preview",
-          title: file.name
-        }));
-      };
-    })(file);
-    reader.readAsDataURL(file);
+  $('#event-image').change(function(){
+    if ( !this.files.length ) {
+      return;
+    }
+    $('#image-preview').text('');
+ 
+    // 格納ファイルを取得し、ファイル数を数える
+    var $files = $(this).prop('files'); 
+    var len = $files.length;
+
+    
+    for ( var i = 0; i < len; i++ ) {
+      var file = $files[i];
+      var fr = new FileReader();
+ 
+      fr.onload = function(e) {
+        // ファイル毎にimgタグとsrcを生成
+        var src = e.target.result;
+        var img = $('<div><img src="'+ src +'"></div>');
+        
+        $('#image-preview').append(img);
+      }
+      fr.readAsDataURL(file);
+    }
+ 
+    $('#image-preview').css('display','block');
   });
+
 });

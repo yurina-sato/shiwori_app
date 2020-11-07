@@ -18,7 +18,7 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to trip_schedule_path(@trip.id, @schedule.id), notice: 'イベントを作成しました。'
     else
-      @event.image = nil # 画像プレビューを空にする
+      @event.images = nil # 画像プレビューを空にする
       render :new
     end
   end
