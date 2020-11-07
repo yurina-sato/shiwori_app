@@ -98,7 +98,7 @@
       <%# 作成ボタン %>
       <div class="create-btn-contents">
         <%= f.submit "編集する" ,class:"create-btn" %>
-        <%=link_to 'もどる', trip_schedule_path(@trip.id, @schedule.id), class:"back-btn" %>
+        <%=link_to 'もどる', trip_schedule_event_path(@trip.id, @schedule.id, @event.id), class:"back-btn" %>
       </div>
         
     <% end %>

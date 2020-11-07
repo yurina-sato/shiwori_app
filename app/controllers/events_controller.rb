@@ -30,6 +30,7 @@ class EventsController < ApplicationController
     if @event.update(event_params)
       redirect_to trip_schedule_event_path(@trip.id, @schedule.id, @event.id), notice: 'イベントを編集しました。'
     else
+      @event.images = nil # 画像プレビューを空にする(DB自体はそのまま)
       render :edit
     end
   end
