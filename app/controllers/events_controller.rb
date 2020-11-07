@@ -45,7 +45,7 @@ class EventsController < ApplicationController
 
   private
   def event_params
-    params.require(:event).permit(:name, :text, :day, :start_time, :finish_time, :place, :url, :price, :image).merge(schedule_id: params[:schedule_id])
+    params.require(:event).permit(:name, :text, :day, :start_time, :finish_time, :place, :url, :price, images: []).merge(schedule_id: params[:schedule_id])
   end
 
   def set_trip

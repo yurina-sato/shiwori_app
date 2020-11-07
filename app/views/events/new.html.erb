@@ -82,14 +82,19 @@
       </div>
       <%= f.text_field :price, class:"event-text", id:"event-price", placeholder:"例：15000" %>
 
-
       <div class="form-title">
-        写真
+          写真 ※複数選択可(CtrlやShiftキーを押しながら選択してください)
       </div>
-      <%= f.file_field :image, class: 'hidden', id:"event-image" %>
-      <div id="image-preview">
-        <%= image_tag @event.image, id: 'event-img' if @event.image.attached? %>
-      </div> 
+      <div class="input-area">
+        <%= f.file_field :images, class: 'event[images][]', id:"event-image",  multiple: true %>
+        <div id="image-preview">
+          <div>
+            <% @event.images.each do |image| %>
+              <%= image_tag image, id: 'event-img' %>
+            <% end %>
+          </div>
+        </div> 
+      </div>
 
       <%# 作成ボタン %>
       <div class="create-btn-contents">

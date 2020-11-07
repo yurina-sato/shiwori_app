@@ -86,9 +86,13 @@
       <div class="form-title">
         写真
       </div>
-      <%= f.file_field :image, class: 'hidden', id:"event-image" %>
+      <%= f.file_field :images, class: 'event[images][]', id:"event-image",  multiple: true %>
       <div id="image-preview">
-        <%= image_tag @event.image, id: 'event-img' if @event.image.attached? %>
+        <% @event.images.each do |image| %>
+          <div>
+            <%= image_tag image, id: 'event-img' %>
+          </div>
+        <% end %>
       </div> 
 
       <%# 作成ボタン %>

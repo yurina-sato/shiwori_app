@@ -1,7 +1,6 @@
 class Event < ApplicationRecord
   belongs_to :schedule
-  has_one_attached :image
-  # has_many_attached :images, dependent: :destroy
+  has_many_attached :images, dependent: :destroy
 
   with_options presence: true do
     validates :name, :day, :start_time, :finish_time
