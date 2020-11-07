@@ -1,5 +1,5 @@
 /* スケジュール作成・編集フォーム */
-.new-schedule-content {
+.new-event-content {
   width: 90%;
   height: 90%;  
   background-color: white;
@@ -7,32 +7,43 @@
 
 }
 
-.schedule-title {
+.event-title {
   margin-top: 30px;
   padding: 10px;
   text-align: center;
 }
 
-
-.trip-days {
+.schedule-day {
   color: #aaa;
   text-align: center;
 
 }
 
-.schedule-main {
+.event-main {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.schedule-text {
+.event-text {
   width: 100%;
   padding: 16px 16px 8px;
   border-radius: 4px;
   border: 1px solid #ccc;
   font-size: 16px;
   resize: none;
+}
+
+.image-preview {
+  width: 100%;
+  background-color: aqua;
+  display: block;
+}
+
+img {
+  width: 320px;
+  height: 250px;
+  padding: 10px;
 }
 
 /* ボタン */
@@ -73,47 +84,14 @@
 }
 
 
-/* スケジュール詳細ページ */
-
-.schedule-titile {
-  display: flex;
-  width: 90%;
-  min-width: 450px;
-}
-
-.schedule-titile h3 {
-  margin-top: 10px;
-  padding: 20px;
-  color: gray;
-}
-
-.schedule-details {
-  width: 90%;
-  min-width: 450px;
-  margin: 20px;
-}
-
-.schedule-details-items {
-  display: flex;
-}
-
-.schedule-details-items p {
-  margin: 10px;
-  padding: 5px;
-}
-
-.events-container {
+/* イベント詳細ページ(events#show) */
+.events-show-container {
   width: 90%;
   min-width: 600px;
   margin: 20px;
-  border-top: thin dotted #333333;
 }
 
-.event-lists {
-  padding: 10px;
-}
-
-.event-list {
+.event-show {
   list-style: none;
   background-color: #fff;
   border: 3px solid #F89174;
@@ -123,24 +101,24 @@
   padding: 10px;
 }
 
-.event-info {
+.event-show-info {
   color: #F89174;
   display: flex;
 }
 
-.event-info-left {
+.event-show-info-left {
   min-width: 120px;
   border-right: 3px dotted #F89174;
   font-size: 20px;
 }
 
-.event-info-right {
+.event-show-info-right {
   width: 90%;
   min-width: 400px;
   margin: 0 10px;
 }
 
-.event-info-right-upper {
+.event-show-info-right-upper {
   border-bottom: 3px solid #F89174;
   margin-bottom: 10px;
   padding: 5px 0;
@@ -148,34 +126,37 @@
   justify-content: space-between;
 }
 
-.event-info-name {
+.event-show-info-name {
   font-size: 30px;
   margin: 5px 0;
 }
 
-.event-info-price {
+.event-show-info-price {
   text-align: right;
   margin-top: 10px;
   padding: 5px 0;
 }
 
-.event-info-right-lower {
-  display: flex;
-  justify-content: space-between;
-}
-
-.event-info-place {
+.event-show-info-place {
   color: #aaa;
   margin: 10px 0;
 }
 
-.event-info-text {
+.event-show-info-text {
   color: #aaa;
   margin: 10px 0;
 }
 
-.event-image-icon {
-  text-align: right;
-  padding-top: 50px;
+.swiper-container {
+  width: 400px;
+ 
 }
 
+.swiper-slide {
+  padding: 40px;
+}
+
+.event-image {
+  width: 320px;
+  height: 250px;
+}

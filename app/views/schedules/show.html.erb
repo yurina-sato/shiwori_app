@@ -9,7 +9,7 @@
           <ul>
             <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
             <li><%= link_to 'アカウント設定', "#" %></li>
-            <li><%= link_to 'イベント作成', "#" %></li>
+            <li><%= link_to 'イベント作成', new_trip_schedule_event_path(@trip.id, @schedule.id) %></li>
             <li><%= link_to 'スケジュール編集', edit_trip_schedule_path(@trip.id) %></li>
             <li><%= link_to 'スケジュール削除', trip_schedule_path(@trip.id, @schedule.id), method: :delete %></li>
             <li><%= link_to 'しおり詳細へ戻る', trip_path(@trip.id) %></li>
@@ -46,10 +46,45 @@
       
 
       <div class="events-container">
-        イベントが時系列で並ぶ
+        <ul class="event-lists">
+          <% @events.each do |event| %>
+            <li class='event-list'>
+              <%= link_to trip_schedule_event_path(@trip.id, @schedule.id, event.id) do %>
+                <div class="event-info">
+                  <div class="event-info-left">
+                    <p><%= event.day %></p>
+                    <p><strong><%= event.start_time.strftime( "%H:%M" )  %></strong></p>
+                    <p><strong>↓</strong></p>
+                    <p><strong><%= event.finish_time.strftime( "%H:%M" )  %></strong></p>
+                  </div>
+                  <div class="event-info-right">
+                    <div class="event-info-right-upper">
+                      <p class="event-info-name"><strong><%= event.name %></strong></p>
+                      <p class="event-info-price">
+                        <% if event.price != nil %>
+                          <%= event.price %>円
+                        <% end %>
+                      </p>
+                    </div>
+                    <div class="event-info-right-lower">
+                      <div>
+                        <p class="event-info-place"><%= event.place %></p>
+                        <p class="event-info-text"><%= event.text %></p>
+                      </div>
+                      <div class="event-image-icon">
+                        <% if event.images.attached? %>
+                          <i class="fas fa-camera fa-2x"></i>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </li>
+          <% end %>
+        </ul> 
       </div>
     </div>
 
   </div>
 </div>
-

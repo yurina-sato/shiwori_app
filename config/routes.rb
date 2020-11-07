@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show]
   resources :trips, only: [:show, :new, :create, :edit, :update, :destroy] do
-    resources :schedules, only: [:show, :new, :create, :edit, :update, :destroy]
+    resources :schedules, only: [:show, :new, :create, :edit, :update, :destroy] do
+      resources :events, only: [:show, :new, :create, :edit, :update, :destroy]
+    end
   end
 
   root to: "users#show"

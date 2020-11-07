@@ -1,5 +1,6 @@
 class Schedule < ApplicationRecord
   belongs_to :trip
+  has_many :events, dependent: :destroy
 
   with_options presence: true do
     validates :name, :text, :day

@@ -1,7 +1,8 @@
 class Trip < ApplicationRecord
   has_many :trip_users, dependent: :destroy
   has_many :users, through: :trip_users
-  has_many :schedules
+  has_many :schedules, dependent: :destroy
+  has_many :events, through: :schedules, dependent: :destroy # scheduleを経由してeventをhas_mamy
 
   with_options presence: true do
     validates :name, :text, :destination, :start_day, :finish_day

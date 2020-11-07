@@ -7,6 +7,7 @@ ja:
       user: ユーザ
       trip: しおり
       schedule: スケジュールページ
+      event: イベント
     attributes:
       user:
         nickname: ニックネーム
@@ -21,6 +22,11 @@ ja:
         name: スケジュールページ名
         text: スケジュールページ概要
         day: 日付
+      event:
+        name: イベント名
+        day: 日付
+        start_time: 開始時間
+        finish_time: 終了時間
     # errors:
     #   messages:
     #     full-width_characters: "は全角(漢字・かな・カナ)で入力してください"

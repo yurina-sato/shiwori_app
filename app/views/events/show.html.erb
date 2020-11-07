@@ -1,0 +1,92 @@
+<div class="backscreen">
+  <div class="wrapper">
+    <div class="side-bar">
+      <div class="side-bar-upper">
+        <h2><%= current_user.nickname %></h2>
+      </div>
+      <div class="side-bar-lower">
+        <% if user_signed_in? && @trip.user_ids.include?(current_user.id) %> 
+          <ul>
+            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
+            <li><%= link_to 'アカウント設定', "#" %></li>
+            <li><%= link_to 'イベント編集', edit_trip_schedule_event_path(@trip.id, @schedule.id, @event.id) %></li>
+            <li><%= link_to 'イベント削除', trip_schedule_event_path(@trip.id, @schedule.id, @event.id), method: :delete %></li>
+            <li><%= link_to 'スケジュール詳細へ戻る', trip_schedule_path(@trip.id, @schedule.id) %></li>
+            <li><%= link_to 'しおり詳細へ戻る', trip_path(@trip.id) %></li>
+            <li><%= link_to 'しおり一覧へ戻る', root_path %></li>
+          </ul>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="main-container">
+      <div class="schedule-titile">
+        <h1><%= @schedule.name %></h1>
+        <h3><%= @trip.name %></h3>
+      </div>
+
+      <div class="events-show-container">
+            <div class='event-show'>
+                <div class="event-show-info">
+                  <div class="event-show-info-left">
+                    <p><%= @event.day %></p>
+                    <p><strong><%= @event.start_time.strftime( "%H:%M" )  %></strong></p>
+                    <p><strong>↓</strong></p>
+                    <p><strong><%= @event.finish_time.strftime( "%H:%M" )  %></strong></p>
+                  </div>
+                  <div class="event-show-info-right">
+                    <div class="event-show-info-right-upper">
+                      <p class="event-show-info-name"><strong><%= @event.name %></strong></p>
+                      <p class="event-show-info-price">
+                        <% if @event.price != nil %>
+                          <%= @event.price %>円
+                        <% end %>
+                      </p>
+                    </div>
+                    <p class="event-show-info-place">場所：<%= @event.place %></p>
+                    <p class="event-show-info-text">概要：<%= @event.text %></p>
+                    <p class="event-show-info-text">URL：<%= @event.url %></p>
+
+                    <% if @event.images != nil %>
+                      <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                          <% @event.images.each do |image| %>
+                            <div class="swiper-slide"><%= image_tag image.variant(resize: '320x250'), class: 'event-image' %></div>
+                          <% end %>
+                        </div>
+
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+
+                        <div class="swiper-pagination"></div>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+            </div>
+     
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<%# swiper %>
+<script>
+var mySwiper = new Swiper('.swiper-container', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
+
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  }
+})
+</script>
