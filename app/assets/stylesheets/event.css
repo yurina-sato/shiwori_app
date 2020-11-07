@@ -37,11 +37,13 @@
 .image-preview {
   width: 100%;
   background-color: aqua;
+  display: block;
 }
 
 img {
-  width: 350px;
+  width: 320px;
   height: 250px;
+  padding: 10px;
 }
 
 /* ボタン */
@@ -145,10 +147,16 @@ img {
   margin: 10px 0;
 }
 
-.event-show-images {
-  width: 450px;
-  height: 400px;
-  background-color: #F89174;
-  color: #fff;
+.swiper-container {
+  width: 400px;
+ 
 }
 
+.swiper-slide {
+  padding: 40px;
+}
+
+.event-image {
+  width: 320px;
+  height: 250px;
+}
