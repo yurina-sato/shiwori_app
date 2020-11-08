@@ -1,0 +1,36 @@
+<div class="backscreen">
+  <div class="new-schedule-content">
+    <div class="schedule-title">
+      <h1>リストページ編集</h1>
+    </div>
+
+    <div class="trip-days">
+      <h5>旅行日程：<%= @trip.start_day %> 〜 <%= @trip.finish_day %></h5>
+    </div>
+
+    <div class="schedule-main">
+    <%= form_with model: [@trip, @list], url: trip_list_path(@trip.id, @list.id), local: true do |f| %>
+
+      <%= render 'shared/error_messages', model: f.object %>
+
+      <div class="form-title">
+        リスト名
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_field :name, class:"schedule-text", id:"schedule-name", placeholder:"例：買い物リスト" %>
+
+      <div class="form-title">
+        リスト概要
+      </div>
+      <%= f.text_area :text, class:"schedule-text", id:"schedule-info", placeholder:"例：自分が欲しいものと、お土産買っていく人をリスト化" %>
+
+      <%# 作成ボタン %>
+      <div class="create-btn-contents">
+        <%= f.submit "作成する" ,class:"create-btn" %>
+        <%=link_to 'もどる', trip_list_path(@trip.id, @list.id), class:"back-btn" %>
+      </div>
+        
+    <% end %>
+  </div>
+
+</div>

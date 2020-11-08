@@ -177,7 +177,7 @@
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
 | name   | string     | null: false                    |
-| text   | text       | null: false                    |
+| text   | text       |                                |
 | trip   | references | null: false, foreign_key: true |
 
 ### Association

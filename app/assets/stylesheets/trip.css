@@ -151,6 +151,7 @@
   padding: 5px;
 }
 
+/* スケジュール一覧 */
 .schedules-container {
   width: 90%;
   min-width: 450px;
@@ -193,14 +194,44 @@
 .icon-name {
   font-size: 20px;
   text-align: right;
-  margin-top: 70px;
+  margin-top: 20px;
 
 }
 
+/* リスト一覧 */
 .lists-container {
   width: 90%;
   min-width: 450px;
   margin: 20px;
   height: 300px;
-  background-color: coral;
+}
+
+.list-lists {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 10px;
+}
+
+.list-list {
+  list-style: none;
+background-color: coral;
+  border-radius: 10px;
+  width: 180px;
+  height: 180px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.list-info {
+  color: #FFF;
+}
+
+.list-name {
+  font-size: 30px;
+}
+
+.list-name :hover {
+  color: #d65f4c;
+  
 }

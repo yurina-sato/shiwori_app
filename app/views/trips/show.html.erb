@@ -10,7 +10,7 @@
             <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
             <li><%= link_to 'アカウント設定', "#" %></li>
             <li><%= link_to 'スケジュール作成', new_trip_schedule_path(@trip.id) %></li>
-            <li><%= link_to 'リスト作成', "#" %></li>
+            <li><%= link_to 'リスト作成', new_trip_list_path(@trip.id) %></li>
             <li><%= link_to 'しおり編集', edit_trip_path(@trip.id) %></li>
             <li><%= link_to 'しおり削除', trip_path(@trip.id), method: :delete %></li>
             <li><%= link_to 'しおり一覧へ戻る', root_path %></li>
@@ -64,8 +64,17 @@
 
 
       <div class="lists-container">
-        <h3>リスト一覧</h3>
         <ul class="list-lists">
+          <% @lists.each do |list| %>
+            <li class='list-list'>
+              <%= link_to trip_list_path(@trip.id, list.id) do %>
+                <div class="list-info">
+                  <p class="list-name"><strong><%= list.name %></strong></p>
+                  <p class="icon-name">list</p>
+                </div>
+              <% end %>
+            </li>
+          <% end %>
         </ul>
       </div>
 

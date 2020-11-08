@@ -1,0 +1,181 @@
+/* リスト作成・編集フォーム */
+.new-list-content {
+  width: 90%;
+  height: 90%;  
+  background-color: white;
+  overflow: auto;
+
+}
+
+.list-title {
+  margin-top: 30px;
+  padding: 10px;
+  text-align: center;
+}
+
+
+.trip-days {
+  color: #aaa;
+  text-align: center;
+
+}
+
+.list-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.list-text {
+  width: 100%;
+  padding: 16px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  resize: none;
+}
+
+/* ボタン */
+.create-btn-contents {
+  display: flex;
+  justify-content: space-around;
+  padding: 30px;
+}
+
+.create-btn {
+  display: inline-block;
+  height: 50px;
+  padding: 0 30px;
+  line-height: 50px;
+  letter-spacing: 1px;
+  text-align: center;
+  border: none;
+  border-radius: 2px;
+  margin: 20px;
+  color: #fff;
+  background-color: #F89174;
+}
+
+.back-btn {
+  display: inline-block;
+  height: 50px;
+  padding: 0 30px;
+  line-height: 50px;
+  letter-spacing: 1px;
+  text-align: center;
+  border: none;
+  border-radius: 2px;
+  margin: 20px;
+  color: #fff;
+  background-color: #aaa;  
+  text-decoration: none;
+ 
+}
+
+
+/* リスト詳細ページ */
+
+.list-titile {
+  display: flex;
+  width: 90%;
+  min-width: 450px;
+}
+
+.list-titile h3 {
+  margin-top: 10px;
+  padding: 20px;
+  color: gray;
+}
+
+.list-details {
+  width: 90%;
+  min-width: 450px;
+  margin: 20px;
+}
+
+.list-details-items {
+  display: flex;
+}
+
+.list-details-items p {
+  margin: 10px;
+  padding: 5px;
+}
+
+.items-container {
+  width: 90%;
+  min-width: 600px;
+  margin: 20px;
+  border-top: thin dotted #333333;
+}
+
+.item-lists {
+  padding: 10px;
+}
+
+.event-list {
+  list-style: none;
+  background-color: #fff;
+  border: 3px solid #F89174;
+  border-radius: 10px;
+  min-width: 550px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.event-info {
+  color: #F89174;
+  display: flex;
+}
+
+.event-info-left {
+  min-width: 120px;
+  border-right: 3px dotted #F89174;
+  font-size: 20px;
+}
+
+.event-info-right {
+  width: 90%;
+  min-width: 400px;
+  margin: 0 10px;
+}
+
+.event-info-right-upper {
+  border-bottom: 3px solid #F89174;
+  margin-bottom: 10px;
+  padding: 5px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.event-info-name {
+  font-size: 30px;
+  margin: 5px 0;
+}
+
+.event-info-price {
+  text-align: right;
+  margin-top: 10px;
+  padding: 5px 0;
+}
+
+.event-info-right-lower {
+  display: flex;
+  justify-content: space-between;
+}
+
+.event-info-place {
+  color: #aaa;
+  margin: 10px 0;
+}
+
+.event-info-text {
+  color: #aaa;
+  margin: 10px 0;
+}
+
+.event-image-icon {
+  text-align: right;
+  padding-top: 50px;
+}
+
