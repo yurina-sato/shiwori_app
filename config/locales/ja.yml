@@ -8,6 +8,7 @@ ja:
       trip: しおり
       schedule: スケジュールページ
       event: イベント
+      list: リストページ
     attributes:
       user:
         nickname: ニックネーム
@@ -27,6 +28,9 @@ ja:
         day: 日付
         start_time: 開始時間
         finish_time: 終了時間
+      list:
+        name: リスト名
+        text: リストページ概要
     # errors:
     #   messages:
     #     full-width_characters: "は全角(漢字・かな・カナ)で入力してください"
