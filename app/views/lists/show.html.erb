@@ -39,15 +39,16 @@
           <% @items.each do |item| %>
             <li class='item-list'>
               <div class="item-info">
-                <div class="item-info-left">
-                  □
-                </div>
+                <div class="item-checked" data-id-1=<%= item.list.trip_id %> data-id-2=<%= item.list_id %> data-id-3=<%= item.id %> data-check=<%= item.checked %>>
+                  <div class="item-info-left" id="check-box">
+                    □
+                  </div>
                 
-                <div class="item-info-center">
-                  <p class="item-info-name"><strong><%= item.name %></strong></p>
-                  <p class="item-info-text"><%= item.text %></p>
+                  <div class="item-info-center">
+                    <p class="item-info-name"><strong><%= item.name %></strong></p>
+                    <p class="item-info-text"><%= item.text %></p>
+                  </div>
                 </div>
-
                 <div class="item-info-right">
                   <ul>
                     <li><%= link_to '編集', edit_trip_list_item_path(@trip.id, @list.id, item.id) %></li>
