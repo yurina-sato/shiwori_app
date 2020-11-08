@@ -6,6 +6,7 @@ class TripsController < ApplicationController
   def show
     @trip = Trip.find(params[:id])
     @schedules = @trip.schedules.order('day ASC')
+    @lists = @trip.lists.order('created_at DESC')
   end
 
   def new
