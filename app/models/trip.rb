@@ -4,6 +4,7 @@ class Trip < ApplicationRecord
   has_many :schedules, dependent: :destroy
   has_many :events, through: :schedules, dependent: :destroy # scheduleを経由してeventをhas_mamy
   has_many :lists, dependent: :destroy
+  has_many :items, through: :lists, dependent: :destroy # listを経由してitemをhas_mamy
 
   
   with_options presence: true do
