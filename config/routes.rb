@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     resources :schedules, only: [:show, :new, :create, :edit, :update, :destroy] do
       resources :events, only: [:show, :new, :create, :edit, :update, :destroy]
     end
+
+    resources :lists, only: [:show, :new, :create, :edit, :update, :destroy]
+
   end
 
   root to: "users#show"
