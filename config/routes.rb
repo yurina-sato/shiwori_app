@@ -7,7 +7,10 @@ Rails.application.routes.draw do
       resources :events, only: [:show, :new, :create, :edit, :update, :destroy]
     end
 
-    resources :lists, only: [:show, :new, :create, :edit, :update, :destroy]
+    resources :lists, only: [:show, :new, :create, :edit, :update, :destroy] do
+      resources :items, only: [:new, :create, :edit, :update, :destroy]
+      get 'items/:id', to: 'items#checked'
+    end
 
   end
 

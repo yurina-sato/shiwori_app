@@ -1,28 +1,28 @@
 <div class="backscreen">
-  <div class="new-schedule-content">
-    <div class="schedule-title">
-      <h1>リストページ編集</h1>
+  <div class="new-item-content">
+    <div class="item-title">
+      <h1>新規リスト項目作成</h1>
     </div>
 
     <div class="trip-days">
       <h5>旅行日程：<%= @trip.start_day %> 〜 <%= @trip.finish_day %></h5>
     </div>
 
-    <div class="schedule-main">
-      <%= form_with model: [@trip, @list], url: trip_list_path(@trip.id, @list.id), local: true do |f| %>
+    <div class="item-main">
+      <%= form_with model: [@trip, @list, @item], url: trip_list_items_path(@trip.id, @list.id), local: true do |f| %>
 
         <%= render 'shared/error_messages', model: f.object %>
 
         <div class="form-title">
-          リスト名
+          項目名
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_field :name, class:"schedule-text", id:"schedule-name", placeholder:"例：買い物リスト" %>
+        <%= f.text_field :name, class:"item-text", id:"item-name", placeholder:"例：職場へのお土産" %>
 
         <div class="form-title">
-          リスト概要
+          概要
         </div>
-        <%= f.text_area :text, class:"schedule-text", id:"schedule-info", placeholder:"例：自分が欲しいものと、お土産買っていく人をリスト化" %>
+        <%= f.text_area :text, class:"item-text", id:"item-info", placeholder:"例：20個入りくらいの箱菓子" %>
 
         <%# 作成ボタン %>
         <div class="create-btn-contents">

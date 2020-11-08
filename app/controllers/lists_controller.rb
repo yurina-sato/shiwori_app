@@ -5,6 +5,8 @@ class ListsController < ApplicationController
 
 
   def show
+    @list = List.find(params[:id])
+    @items = @list.items.order('created_at ASC')
   end
 
   def new

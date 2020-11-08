@@ -9,6 +9,7 @@ ja:
       schedule: スケジュールページ
       event: イベント
       list: リストページ
+      item: リスト項目
     attributes:
       user:
         nickname: ニックネーム
@@ -31,6 +32,9 @@ ja:
       list:
         name: リスト名
         text: リストページ概要
+      item:
+        name: 項目名
+        text: 項目概要
     # errors:
     #   messages:
     #     full-width_characters: "は全角(漢字・かな・カナ)で入力してください"

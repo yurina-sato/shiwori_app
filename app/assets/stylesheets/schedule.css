@@ -113,6 +113,10 @@
   padding: 10px;
 }
 
+.event-lists li a {
+  text-decoration: none;
+}
+
 .event-list {
   list-style: none;
   background-color: #fff;
@@ -121,6 +125,11 @@
   min-width: 550px;
   margin: 10px;
   padding: 10px;
+}
+
+.event-list :hover {
+  color: #d65f4c;
+  
 }
 
 .event-info {

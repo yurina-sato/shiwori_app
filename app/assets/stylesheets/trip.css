@@ -168,6 +168,10 @@
   padding: 10px;
 }
 
+.schedule-lists li a {
+  text-decoration: none;
+}
+
 .schedule-list {
   list-style: none;
   background-color: #FFC778;
@@ -211,6 +215,10 @@
   flex-wrap: wrap;
   align-items: center;
   padding: 10px;
+}
+
+.list-lists li a {
+  text-decoration: none;
 }
 
 .list-list {

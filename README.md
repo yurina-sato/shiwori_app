@@ -125,7 +125,9 @@
 
 ### Association
 - has_many :lists
+- has_many :items, through: :lists
 - has_many :schedules
+- has_many :events, through: :schedules
 <!-- - has_one :room -->
 - has_many :trip_users
 - has_many :users, through: :trip_users
@@ -189,7 +191,7 @@
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
 | name      | string     | null: false                    |
-| text      | text       | null: false                    |
+| text      | text       |                                |
 | checked   | boolean    | null: false                    |
 | list      | references | null: false, foreign_key: true |
 
