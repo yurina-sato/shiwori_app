@@ -1,0 +1,46 @@
+<div class="backscreen">
+  <div class="wrapper">
+    <div class="side-bar">
+      <div class="side-bar-upper">
+        <h2><%= current_user.nickname %></h2>
+      </div>
+      <div class="side-bar-lower">
+        <% if user_signed_in? && @trip.user_ids.include?(current_user.id) %> 
+          <ul>
+            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
+            <li><%= link_to 'アカウント設定', "#" %></li>
+            <li><%= link_to 'アイテム作成', "#" %></li>
+            <li><%= link_to 'リスト編集', edit_trip_list_path(@trip.id, @list.id) %></li>
+            <li><%= link_to 'リスト削除', trip_list_path(@trip.id, @list.id), method: :delete %></li>
+            <li><%= link_to 'しおり詳細へ戻る', trip_path(@trip.id) %></li>
+            <li><%= link_to 'しおり一覧へ戻る', root_path %></li>
+          </ul>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="main-container">
+      <div class="list-titile">
+        <h1><%= @list.name %></h1>
+        <h3><%= @trip.name %></h3>
+      </div>
+      
+      <div class="list-details">
+        <div class="list-details-items">
+          <% if @list.text.present? %>
+            <div class="details-title">概要</div>
+            <p><%= @list.text %></p>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="items-container">
+        <ul class="item-lists">
+          ここにアイテム
+        </ul> 
+
+      </div>
+    </div>
+
+  </div>
+</div>
