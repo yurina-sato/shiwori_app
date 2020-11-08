@@ -7,6 +7,19 @@ class TripsController < ApplicationController
     @trip = Trip.find(params[:id])
     @schedules = @trip.schedules.order('day ASC')
     @lists = @trip.lists.order('created_at DESC')
+
+    @trip_cost = 0
+    @schedules.each do |schedule|
+      day_cost = 0 # イベント毎の金額を合計し、一日毎(スケジュール毎)の金額を取得
+      schedule.events.each do |event| 
+        if event.price != nil
+          cost = event.price
+          day_cost = day_cost + cost
+        end
+      end
+      @trip_cost = @trip_cost + day_cost # スケジュール毎の金額を合計し、旅行全体の金額に
+    end
+
   end
 
   def new
