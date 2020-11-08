@@ -9,28 +9,28 @@
     </div>
 
     <div class="list-main">
-    <%= form_with model: [@trip, @list], url: trip_lists_path(@trip.id), local: true do |f| %>
+      <%= form_with model: [@trip, @list], url: trip_lists_path(@trip.id), local: true do |f| %>
 
-      <%= render 'shared/error_messages', model: f.object %>
+        <%= render 'shared/error_messages', model: f.object %>
 
-      <div class="form-title">
-        リスト名
-        <span class="indispensable">必須</span>
-      </div>
-      <%= f.text_field :name, class:"list-text", id:"list-name", placeholder:"例：買い物リスト" %>
+        <div class="form-title">
+          リスト名
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_field :name, class:"list-text", id:"list-name", placeholder:"例：買い物リスト" %>
 
-      <div class="form-title">
-        リスト概要
-      </div>
-      <%= f.text_area :text, class:"list-text", id:"list-info", placeholder:"例：自分が欲しいものと、お土産買っていく人をリスト化" %>
+        <div class="form-title">
+          リスト概要
+        </div>
+        <%= f.text_area :text, class:"list-text", id:"list-info", placeholder:"例：自分が欲しいものと、お土産買っていく人をリスト化" %>
 
-      <%# 作成ボタン %>
-      <div class="create-btn-contents">
-        <%= f.submit "作成する" ,class:"create-btn" %>
-        <%=link_to 'もどる', trip_path(@trip.id), class:"back-btn" %>
-      </div>
+        <%# 作成ボタン %>
+        <div class="create-btn-contents">
+          <%= f.submit "作成する" ,class:"create-btn" %>
+          <%=link_to 'もどる', trip_path(@trip.id), class:"back-btn" %>
+        </div>
         
-    <% end %>
+      <% end %>
+    </div>
   </div>
-
 </div>
