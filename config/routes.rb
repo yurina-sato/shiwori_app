@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
     resources :lists, only: [:show, :new, :create, :edit, :update, :destroy] do
       resources :items, only: [:new, :create, :edit, :update, :destroy]
+      get 'items/:id', to: 'items#checked'
     end
 
   end
