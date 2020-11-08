@@ -7,6 +7,15 @@ class SchedulesController < ApplicationController
   def show
     @schedule = Schedule.find(params[:id])
     @events = @schedule.events.order('start_time ASC')
+
+    @day_cost = 0 # イベント毎の金額をけ合計し、一日毎(スケジュールページ)の金額を表示
+    @events.each do |event|
+      if event.price != nil
+        cost = event.price
+        @day_cost = @day_cost + cost
+      end
+    end
+
   end
 
   def new
