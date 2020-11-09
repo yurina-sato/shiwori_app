@@ -138,7 +138,10 @@ password: member3123
 
 
 ### スケジュール・イベント
-![demo](https://gyazo.com/bbdb0a94845cf726b12f43bafbad8429 "schedule-demo")
+![shiwori-sche-demo](https://user-images.githubusercontent.com/70574115/98528918-4dd80500-22c0-11eb-9a3a-9bafba27b44f.gif)  
+しおり詳細から1日毎のスケジュールページを作成することが出来ます。  
+また、スケジュール内にイベントを作成すると、スケジュール詳細ページに時系列で並んで表示されます。  
+イベントには画像を添付できるため、旅行後にイベント毎に写真を紐付けることで写真の管理がしやすくなります。
 
 
 ### リスト・アイテム(リスト項目)
