@@ -117,8 +117,7 @@ password: member3123
 
 # データベース設計
 ## ER図
-<img width="798" alt="shiwori-ER1109" src="https://user-images.githubusercontent.com/70574115/98512181-3f322380-22a9-11eb-8030-287aef4f00f5.png">
-
+<img width="500" alt="shiwori-ER1109" src="https://user-images.githubusercontent.com/70574115/98512630-f3cc4500-22a9-11eb-9ca2-50aa25eedecc.png">
 
 
 ## usersテーブル(devise)
