@@ -40,7 +40,7 @@ password: member3123
 1. 作成ボタンを押下
 
 ### スケジュール・イベント
-1. テストアカウントでログイン  
+- テストアカウントでログイン  
 
 **スケジュール**  
 1. トップページのしおり一覧から、スケジュールページを作成するしおり(アイコン)を押下
@@ -55,7 +55,7 @@ password: member3123
 1. 作成ボタンを押下  
 
 ### リスト・アイテム(リスト項目)
-1. テストアカウントでログイン  
+- テストアカウントでログイン  
 
 **リスト**
 1. トップページのしおり一覧から、リストを作成するしおり(アイコン)を押下
@@ -284,7 +284,13 @@ password: member3123
 - has_one_attached :image -->
 
 # ローカルでの動作方法
-git cloneしてから、ローカルで動作をさせるまでに必要なコマンドを記述
+% git clone https://github.com/yurina-sato/shiwori_app.git  
+% cd shiwori_app  
+% bundle install  
+% rails db:create  
+% rails db:migrate  
+% rails s  
+  → http://localhost:3000 で接続
 
 # 使用技術・開発環境
 #### バックエンド
