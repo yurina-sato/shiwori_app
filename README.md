@@ -6,12 +6,23 @@
 旅行の計画書(旅のしおり)を作成、共有ができます。
 
 ### URL
-デプロイ次第記述
+https://shiwori-app.herokuapp.com/
 
 ### テスト用アカウント
-メインユーザー
-メンバー２
-メンバー３
+#### メインユーザー
+nickname: sample
+email:sample@sample.com
+password: sample123
+
+#### メンバー２
+nickname: member2
+email:member2@sample.com
+password: member2123
+
+#### メンバー３
+nickname: member3
+email:member3@sample.com
+password: member3123
 
 ### Basic認証
 
@@ -36,8 +47,8 @@
 - 旅行後は写真をメンバーが各々まとめて送り合うので、写真フォルダが溢れかえってしまう  
   →日付やイベント毎に写真をまとめたい
 
-- 割り勘でいくらになるか、誰が建て替えてていくら渡すのかなど、お金の管理が複雑になりやすい  
-  →自動で割り勘金額を計算したい、お金のやり取りを気軽にメモしたい
+- 最終的にいくらになるか、誰が建て替えてていくら渡すのかなど、お金の管理が複雑になりやすい  
+  →自動で一人当たりの金額を計算したい、お金のやり取りを気軽にメモしたい
 
 
 これらの課題は、
@@ -72,17 +83,19 @@
 
 ### アイテム機能
 リストに投稿する一つひとつの項目を作成します。  
-実行したらボックスにチェックをできる仕様を想定しています。
+実行したらクリックすることで、色を薄くして他アイテムと区別できる仕様を想定しています。
 
 ### 金額計算機能
-イベント毎にかかる費用を記録し、合計金額と一人あたりの割り勘金額を算出する機能です。  
-各イベントの合計金額を計算し、しおりに紐づいたユーザー数で割って計算します。
+イベント毎にかかる費用を記録し、一人あたりの旅行金額を算出する機能です。  
+各イベントの合計金額を計算し、1日毎(スケジュールページ毎)の金額を計算します。
+更に、1日毎の金額を合算し、旅行全体の合計金額を出します。
 
 
 # 実装した機能についてのGIFと説明
 実装した機能について、それぞれどのような特徴があるのか列挙
 
 # 実装予定の機能・課題
+## 追加実装予定の機能
 ### チャットルーム機能
 旅行毎にメンバーとやり取りができるチャットルームを作成します。  
 普段使うメッセージアプリのグループとは他に、旅行専用でチャットルームがあることで、情報が埋もれずスムーズな共有ができると考えています。  
@@ -95,6 +108,11 @@
 ### PDF出力機能
 しおりページ、スケジュール、リストをPDFで出力できる機能です。  
 学生サークルや企のような大人数での旅行の場合に、編集権限のないメンバーへもしおり共有をできるように実装したいと考えています。
+
+## 改良したい課題
+- 画像プレビューの改良(プレビュー上で画像の差し替えや削除)
+- メンバー選択フォームの改良
+- しおりへ参加するユーザーの招待制、主催者の設定
 
 # データベース設計
 ## ER図
@@ -124,14 +142,13 @@
 
 
 ### Association
-- has_many :lists
-- has_many :items, through: :lists
-- has_many :schedules
-- has_many :events, through: :schedules
-<!-- - has_one :room -->
 - has_many :trip_users
 - has_many :users, through: :trip_users
-
+- has_many :schedules
+- has_many :events, through: :schedules
+- has_many :lists
+- has_many :items, through: :lists
+<!-- - has_one :room -->
 
 ## trip_usersテーブル (中間テーブル)
 | Column | Type       | Options                        |
@@ -192,7 +209,7 @@
 | --------- | ---------- | ------------------------------ |
 | name      | string     | null: false                    |
 | text      | text       |                                |
-| checked   | boolean    | null: false                    |
+| checked   | boolean    |                                |
 | list      | references | null: false, foreign_key: true |
 
 ### Association
@@ -231,14 +248,14 @@ git cloneしてから、ローカルで動作をさせるまでに必要なコ�
 Ruby, Ruby on Rails
 
 #### フロントエンド
-HTML, CSS
+HTML, CSS, JavaScript, jQuery
 
 #### データベース
 MySQL
 
 #### インフラ
-AWS(S3)　※画像サーバー  
-Heroku　※本番環境
+AWS(S3) ※画像サーバー  
+Heroku ※本番環境
 
 #### ソース管理
 GitHub, GitHubDesktop
