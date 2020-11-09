@@ -10,19 +10,19 @@ https://shiwori-app.herokuapp.com/
 
 ### テスト用アカウント
 #### メインユーザー
-nickname: sample
-email:sample@sample.com
-password: sample123
+nickname: sample  
+email:sample@sample.com  
+password: sample123  
 
 #### メンバー２
-nickname: member2
-email:member2@sample.com
-password: member2123
+nickname: member2  
+email:member2@sample.com  
+password: member2123  
 
 #### メンバー３
-nickname: member3
-email:member3@sample.com
-password: member3123
+nickname: member3  
+email:member3@sample.com  
+password: member3123  
 
 ### Basic認証
 
@@ -36,7 +36,8 @@ password: member3123
 ### リスト
 
 # 制作背景・目指した課題解決
-週末や連休で旅行に行くことを想定した際、自身の経験から下記の課題を洗い出しました。
+20〜30代の友人同士で、週末や連休で旅行に行くことを想定した際、  
+自身の経験から下記の課題を洗い出しました。
 
 - メッセージアプリのグループで共有すると、予約情報などを決まり次第送り合うので古いものは埋もれてしまう  
   →旅行前の情報共有を時系列で管理したい
@@ -54,7 +55,7 @@ password: member3123
 これらの課題は、
 **修学旅行で使ったような「旅のしおり」があれば解決できるのでは？、**
 と考えました。  
-以上から、旅のしおりを簡単に作れるアプリケーションの制作を目標にしています。
+以上から、「ペーパーレスな現代の旅のしおり」を簡単に作れるアプリケーションの制作を目標にしています。
 
 # 洗い出した要件
 
