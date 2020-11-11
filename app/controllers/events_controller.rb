@@ -4,7 +4,6 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :move_to_root
 
-
   def show
   end
 
@@ -44,6 +43,7 @@ class EventsController < ApplicationController
   end
 
   private
+
   def event_params
     params.require(:event).permit(:name, :text, :day, :start_time, :finish_time, :place, :url, :price, images: []).merge(schedule_id: params[:schedule_id])
   end
@@ -63,5 +63,4 @@ class EventsController < ApplicationController
   def move_to_root
     redirect_to root_path unless user_signed_in? && @trip.user_ids.include?(current_user.id)
   end
-
 end

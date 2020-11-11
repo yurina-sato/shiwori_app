@@ -40,7 +40,7 @@ class ItemsController < ApplicationController
   def checked
     # binding.pry
     @item = Item.find(params[:id])
-    if @item.checked 
+    if @item.checked
       @item.update(checked: false)
     else
       @item.update(checked: true)
@@ -50,8 +50,8 @@ class ItemsController < ApplicationController
     render json: { item: checked_item }
   end
 
-
   private
+
   def item_params
     params.require(:item).permit(:name, :text).merge(list_id: params[:list_id])
   end

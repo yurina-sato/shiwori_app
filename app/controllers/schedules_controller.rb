@@ -3,19 +3,17 @@ class SchedulesController < ApplicationController
   before_action :set_schedule, only: [:show, :edit, :update, :destroy]
   before_action :move_to_root
 
-
   def show
     @schedule = Schedule.find(params[:id])
     @events = @schedule.events.order('start_time ASC')
 
     @day_cost = 0 # イベント毎の金額をけ合計し、一日毎(スケジュールページ)の金額を表示
     @events.each do |event|
-      if event.price != nil
+      unless event.price.nil?
         cost = event.price
-        @day_cost = @day_cost + cost
+        @day_cost += cost
       end
     end
-
   end
 
   def new
@@ -52,6 +50,7 @@ class SchedulesController < ApplicationController
   end
 
   private
+
   def schedule_params
     params.require(:schedule).permit(:name, :text, :day).merge(trip_id: params[:trip_id])
   end
@@ -67,6 +66,4 @@ class SchedulesController < ApplicationController
   def move_to_root
     redirect_to root_path unless user_signed_in? && @trip.user_ids.include?(current_user.id)
   end
-
-
 end

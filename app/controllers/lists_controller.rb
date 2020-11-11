@@ -3,7 +3,6 @@ class ListsController < ApplicationController
   before_action :set_list, only: [:show, :edit, :update, :destroy]
   before_action :move_to_root
 
-
   def show
     @list = List.find(params[:id])
     @items = @list.items.order('created_at ASC')
@@ -59,5 +58,4 @@ class ListsController < ApplicationController
   def move_to_root
     redirect_to root_path unless user_signed_in? && @trip.user_ids.include?(current_user.id)
   end
-
 end

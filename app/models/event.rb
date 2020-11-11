@@ -16,7 +16,7 @@ class Event < ApplicationRecord
 
   def time_check # 時刻の前後をチェック
     return if finish_time.blank? || start_time.blank? # 空かどうかを判定
-    errors.add(:finish_time, "の時刻を正しく記入して下さい") unless self.start_time < self.finish_time
-  end 
 
+    errors.add(:finish_time, 'の時刻を正しく記入して下さい') unless start_time < finish_time
+  end
 end
