@@ -53,9 +53,9 @@
                 <div class="event-info">
                   <div class="event-info-left">
                     <p><%= event.day %></p>
-                    <p><strong><%= event.start_time.strftime( "%H:%M" )  %></strong></p>
+                    <p><strong><%= l event.start_time, format: :short %></strong></p>
                     <p><strong>↓</strong></p>
-                    <p><strong><%= event.finish_time.strftime( "%H:%M" )  %></strong></p>
+                    <p><strong><%= l event.finish_time, format: :short %></strong></p>
                   </div>
                   <div class="event-info-right">
                     <div class="event-info-right-upper">
