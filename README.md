@@ -315,7 +315,7 @@ pass: 8888
 Ruby, Ruby on Rails
 
 #### フロントエンド
-HTML, CSS, JavaScript, jQuery
+HTML, CSS, bootstrap, JavaScript, jQuery
 
 #### データベース
 MySQL
