@@ -37,10 +37,12 @@
           <p><%= @schedule.text %></p>
         </div>
         
-        <div class="schedule-details-items">
-          <div class="details-title">この日の金額</div>
-          <p><%= @day_cost %>円/人</p>
-        </div>
+        <% if @day_cost != 0 %>
+          <div class="schedule-details-items">
+            <div class="details-title">この日の金額</div>
+            <p><%= number_with_delimiter @day_cost %>円/人</p>
+          </div>
+        <% end %>
       </div>
 
       
@@ -62,7 +64,7 @@
                       <p class="event-info-name"><strong><%= event.name %></strong></p>
                       <p class="event-info-price">
                         <% if event.price != nil %>
-                          <%= event.price %>円/人
+                          <%= number_with_delimiter event.price %>円/人
                         <% end %>
                       </p>
                     </div>
