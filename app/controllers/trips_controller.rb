@@ -3,9 +3,9 @@ class TripsController < ApplicationController
   before_action :move_to_root, only: [:edit, :update, :destroy]
 
   def show
-    @trip = Trip.find(params[:id])
-    @schedules = @trip.schedules.order('day ASC')
-    @lists = @trip.lists.order('created_at DESC')
+    @schedules = @trip.schedules.includes(:events).order('day ASC')
+    @lists = @trip.lists.includes(:items).order('created_at DESC')
+    @members = User.where(id: @trip.user_ids)
 
     @trip_cost = 0
     @schedules.each do |schedule|
@@ -60,7 +60,7 @@ class TripsController < ApplicationController
   end
 
   def set_trip
-    @trip = Trip.find(params[:id])
+    @trip = Trip.includes(trip_users: :user, schedules: :events, lists: :items).find(params[:id]) # N+1問題対策
   end
 
   def move_to_root
