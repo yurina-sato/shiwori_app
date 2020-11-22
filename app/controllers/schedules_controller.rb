@@ -4,10 +4,7 @@ class SchedulesController < ApplicationController
   before_action :move_to_root
 
   def show
-    @schedule = Schedule.find(params[:id])
-    # @events = @schedule.events.order('start_time ASC')
-    @events = @schedule.includes(:events).order('start_time ASC')
-
+    @events = @schedule.events.with_attached_images.order('start_time ASC') # N+1問題対策(images)
 
     @day_cost = 0 # イベント毎の金額をけ合計し、一日毎(スケジュールページ)の金額を表示
     @events.each do |event|
@@ -58,11 +55,11 @@ class SchedulesController < ApplicationController
   end
 
   def set_trip
-    @trip = Trip.find(params[:trip_id])
+    @trip = Trip.includes(trip_users: :user, schedules: :events).find(params[:trip_id]) # N+1問題対策
   end
 
   def set_schedule
-    @schedule = Schedule.find(params[:id])
+    @schedule = Schedule.includes(:events).find(params[:id]) # N+1問題対策
   end
 
   def move_to_root
