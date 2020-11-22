@@ -49,15 +49,15 @@ class EventsController < ApplicationController
   end
 
   def set_trip
-    @trip = Trip.find(params[:trip_id])
+    @trip = Trip.includes(trip_users: :user, schedules: :events).find(params[:trip_id]) # N+1問題対策
   end
 
   def set_schedule
-    @schedule = Schedule.find(params[:schedule_id])
+    @schedule = Schedule.includes(:events).find(params[:schedule_id]) # N+1問題対策
   end
 
   def set_event
-    @event = Event.find(params[:id])
+    @event = Event.with_attached_images.find(params[:id]) # N+1問題対策
   end
 
   def move_to_root
