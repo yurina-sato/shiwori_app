@@ -37,9 +37,8 @@
         <div class="trip-details-items">
           <div class="details-title">参加メンバー</div>
           <p>
-            <% @trip.user_ids.each do |member_id| %>
-              <% @member = User.find(member_id) %>
-              <%= @member.nickname %>
+            <% @members.each do |member| %>
+              <%= member.nickname %>
             <% end %>
           </p>
         </div>
