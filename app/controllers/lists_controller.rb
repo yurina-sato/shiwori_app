@@ -4,7 +4,6 @@ class ListsController < ApplicationController
   before_action :move_to_root
 
   def show
-    @list = List.find(params[:id])
     @items = @list.items.order('created_at ASC')
   end
 
@@ -48,11 +47,11 @@ class ListsController < ApplicationController
   end
 
   def set_trip
-    @trip = Trip.find(params[:trip_id])
+    @trip = Trip.includes(lists: :items).find(params[:trip_id]) # N+1問題対策
   end
 
   def set_list
-    @list = List.find(params[:id])
+    @list = List.includes(:items).find(params[:id]) # N+1問題対策
   end
 
   def move_to_root
