@@ -60,7 +60,7 @@ class ItemsController < ApplicationController
   end
 
   def set_list
-    @list = List.includes(:items).find(params[:id]) # N+1問題対策
+    @list = List.includes(:items).find(params[:list_id]) # N+1問題対策
   end
 
   def set_item
