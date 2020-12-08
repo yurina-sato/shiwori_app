@@ -20,7 +20,11 @@
     </div>
 
     <div class="main-container">
-      <h1><%= @trip.name %></h1>
+      <% breadcrumb :trip, @trip %>
+      <%= breadcrumbs separator: " &rsaquo; " %> 
+      <div class="trip-title">
+        <h1><%= @trip.name %></h1>
+      </div>
       <div class="trip-details">
         <div class="trip-details-items">
           <div class="details-title">概要</div>
