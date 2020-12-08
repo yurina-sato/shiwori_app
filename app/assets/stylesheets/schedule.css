@@ -79,6 +79,7 @@
   display: flex;
   width: 90%;
   min-width: 450px;
+  margin: 20px 0;
 }
 
 .schedule-titile h3 {
