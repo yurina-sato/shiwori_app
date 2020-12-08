@@ -11,9 +11,9 @@ crumb :schedule do |schedule|
   parent :trip, schedule.trip
 end
 
-crumb :event do
-  link "イベント", trip_schedule_event_path
-  parent :schedule
+crumb :event do |event|
+  link "#{event.name}", trip_schedule_event_path(event.schedule.trip, event.schedule, event)
+  parent :schedule, event.schedule
 end
 
 crumb :list do |list|
