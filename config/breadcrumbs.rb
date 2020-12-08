@@ -2,13 +2,13 @@ crumb :root do
   link "しおり一覧", root_path
 end
 
-crumb :trip do
-  link "しおり詳細", trip_path
+crumb :trip do |trip|
+  link "#{trip.name}", trip_path(trip)
 end
 
-crumb :schedule do
-  link "スケジュール", trip_schedule_path
-  parent :trip
+crumb :schedule do |schedule|
+  link "#{schedule.name}", trip_schedule_path(schedule.trip, schedule)
+  parent :trip, schedule.trip
 end
 
 crumb :event do
@@ -16,9 +16,9 @@ crumb :event do
   parent :schedule
 end
 
-crumb :list do
-  link "リスト", trip_list_path
-  parent :trip
+crumb :list do |list|
+  link "#{list.name}", trip_list_path(list.trip, list)
+  parent :trip, list.trip
 end
 
 
