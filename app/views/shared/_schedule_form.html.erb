@@ -1,0 +1,59 @@
+<div class="trip-days">
+  <h5>旅行日程：<%= @trip.start_day %> 〜 <%= @trip.finish_day %></h5>
+</div>
+
+<div class="schedule-main">
+  <%# @tripと@scheduleのそれぞれの中身でcreateとupdateを自動で判定 %>
+  <%= form_with(model: [@trip, @schedule], local: true) do |f| %>
+
+    <%= render 'shared/error_messages', model: f.object %>
+
+    <div class="form-title">
+      スケジュールページ名
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_field :name, class:"schedule-text", id:"schedule-name", placeholder:"例：◯月◯日 1日目" %>
+
+    <div class="form-title">
+      スケジュールページ概要
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_area :text, class:"schedule-text", id:"schedule-info", placeholder:"例：移動とホテル近場の観光がメインの日" %>
+
+    <div class="date-input">
+      <div class="start-date-input">
+        <div class="form-title">
+          日付
+          <span class="indispensable">必須</span>
+        </div>
+        <div class='input-date-wrap'>
+          <%= raw sprintf(
+                  f.date_select(
+                    :day,
+                    class:'select-date',
+                    id:"start-date",
+                    use_month_numbers: true,
+                    prompt:'--',
+                    start_year: Time.now.year,
+                    end_year: (Time.now.year + 5),
+                    date_separator: '%s'),
+                  "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+        </div>
+      </div>
+    </div>
+
+    <%# 作成・編集ボタン %>
+    <% if @schedule.id != nil %>
+      <div class="create-btn-contents">
+        <%= f.submit "編集する" ,class:"create-btn" %>
+        <%=link_to 'もどる', trip_schedule_path(@trip.id, @schedule.id), class:"back-btn" %>
+      </div>
+    <% else %>
+      <div class="create-btn-contents">
+        <%= f.submit "作成する" ,class:"create-btn" %>
+        <%=link_to 'もどる', trip_path(@trip.id), class:"back-btn" %>
+      </div>
+    <% end %>
+        
+  <% end %>
+</div>
