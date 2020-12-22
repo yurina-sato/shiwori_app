@@ -1,0 +1,35 @@
+<div class="trip-days">
+  <h5>旅行日程：<%= @trip.start_day %> 〜 <%= @trip.finish_day %></h5>
+</div>
+
+<div class="item-main">
+  <%= form_with model: [@trip, @list, @item], local: true do |f| %>
+
+    <%= render 'shared/error_messages', model: f.object %>
+
+    <div class="form-title">
+      項目名
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_field :name, class:"item-text", id:"item-name", placeholder:"例：職場へのお土産" %>
+
+    <div class="form-title">
+      概要
+    </div>
+    <%= f.text_area :text, class:"item-text", id:"item-info", placeholder:"例：20個入りくらいの箱菓子" %>
+
+    <%# 作成・編集ボタン %>
+    <% if @list.id != nil %>
+      <div class="create-btn-contents">
+        <%= f.submit "編集する" ,class:"create-btn" %>
+        <%=link_to 'もどる', trip_list_path(@trip.id, @list.id), class:"back-btn" %>
+      </div>
+    <% else %>
+      <div class="create-btn-contents">
+        <%= f.submit "作成する" ,class:"create-btn" %>
+        <%=link_to 'もどる', trip_list_path(@trip.id, @list.id), class:"back-btn" %>
+      </div>
+    <% end %>
+        
+  <% end %>
+</div>
