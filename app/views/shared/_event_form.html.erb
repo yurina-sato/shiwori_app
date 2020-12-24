@@ -1,0 +1,108 @@
+<div class="schedule-day">
+  <h5>スケジュール日：<%= @schedule.day %></h5>
+</div>
+
+<div class="event-main">
+  <%= form_with model: [@trip, @schedule, @event], local: true do |f| %>
+
+    <%= render 'shared/error_messages', model: f.object %>
+
+    <div class="form-title">
+      イベント名
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_field :name, class:"event-text", id:"event-name", placeholder:"例：新幹線移動" %>
+
+    <div class="form-title">
+      イベント概要
+    </div>
+    <%= f.text_area :text, class:"event-text", id:"event-info", placeholder:"例：はやぶさ〇〇号" %>
+
+    <div class="date-input">
+      <div class="event-date-input">
+        <div class="form-title">
+          日付
+          <span class="indispensable">必須</span>
+        </div>
+        <div class='input-date-wrap'> 
+          <%= raw sprintf(
+                  f.date_select(
+                    :day,
+                    class:'select-date',
+                    id:"start-date",
+                    use_month_numbers: true,
+                    start_year: Time.now.year,
+                    end_year: (Time.now.year + 5),
+                    selected: @schedule.day, 
+                    date_separator: '%s'),
+                  "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="date-input">
+      <div class="start-date-input">
+        <div class="form-title">
+          開始時間
+          <span class="indispensable">必須</span>
+        </div>
+        <div class='input-date-wrap'>
+          <%= f.time_select(:start_time, {class:'select-date', id:"start-time", prompt:'--', time_separator: ':'}, ignore_data: true) %>
+        </div>
+      </div>
+
+      <div class="finish-date-input"> 
+        <div class="form-title">
+          終了時間
+          <span class="indispensable">必須</span>
+        </div>
+        <div class='input-date-wrap'>
+          <%= f.time_select(:finish_time, {class:'select-date', id:"finish-time", prompt:'--', ignore_data: true, time_separator: ':'}) %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-title">
+      場所
+    </div>
+    <%= f.text_area :place, class:"event-text", id:"event-place", placeholder:"例：東京駅新幹線ホーム" %>
+
+    <div class="form-title">
+      URL
+    </div>
+    <%= f.text_area :url, class:"event-text", id:"event-url", placeholder:"例：https://....." %>
+
+    <div class="form-title">
+      金額(円/人) ※一人あたり
+    </div>
+    <%= f.text_field :price, class:"event-text", id:"event-price", placeholder:"例：15000" %>
+
+    <div class="form-title">
+      写真 ※複数選択可(CtrlやShiftキーを押しながら選択してください)
+    </div>
+    <div class="input-area">
+      <%= f.file_field :images, class: 'event[images][]', id:"event-image",  multiple: true %>
+      <div id="image-preview">
+        <div>
+          <% @event.images.each do |image| %>
+            <%= image_tag image, id: 'event-img' %>
+          <% end %>
+        </div>
+      </div> 
+    </div>
+
+    <%# 作成・編集ボタン %>
+    <% if @event.id != nil %>
+      <div class="create-btn-contents">
+        <%= f.submit "編集する" ,class:"create-btn" %>
+        <%=link_to 'もどる', trip_schedule_event_path(@trip.id, @schedule.id, @event.id), class:"back-btn" %>
+      </div>
+    <% else %>
+      <div class="create-btn-contents">
+        <%= f.submit "作成する" ,class:"create-btn" %>
+        <%=link_to 'もどる', trip_schedule_path(@trip.id, @schedule.id), class:"back-btn" %>
+      </div>
+    <% end %>
+        
+  <% end %>
+</div>
