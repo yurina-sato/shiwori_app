@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-  before_save :set_the_day_implement
+  before_save :set_time_zone
 
   belongs_to :schedule
   has_many_attached :images, dependent: :destroy
@@ -22,8 +22,8 @@ class Event < ApplicationRecord
     errors.add(:finish_time, 'の時刻を正しく記入して下さい') unless start_time < finish_time
   end
 
-  # new時のタイムゾーン対策(デフォルトではLMTになってしまい時間がズレるので、dayの日付を持ってくる)
-  def set_the_day_implement
+  # new時のタイムゾーン対策(LMTになってしまい時間がズレるのを避ける)
+  def set_time_zone
     year = self.day.year
     month = self.day.month
     day = self.day.day
