@@ -3,6 +3,7 @@ ja:
       formats:
         default: "%Y/%m/%d %H:%M:%S"
         short: "%H:%M"
+        day: "%Y/%m/%d"
   activerecord:
     models:
       user: ユーザ
