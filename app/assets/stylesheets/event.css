@@ -13,6 +13,11 @@
   text-align: center;
 }
 
+.event-created-at {
+  color: #aaa;
+  margin-left: 20px 
+}
+
 .schedule-day {
   color: #aaa;
   text-align: center;
