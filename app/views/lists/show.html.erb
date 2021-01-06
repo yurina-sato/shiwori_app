@@ -52,6 +52,7 @@
                   <div class="item-info-center">
                     <p class="item-info-name"><strong><%= item.name %></strong></p>
                     <p class="item-info-text"><%= item.text %></p>
+                    <p class="item-info-text"><%= l item.created_at, format: :day %></p>
                   </div>
                 </div>
                 <div class="item-info-right">
