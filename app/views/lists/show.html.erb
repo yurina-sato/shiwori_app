@@ -26,8 +26,11 @@
         <h1><%= @list.name %></h1>
         <h3><%= @trip.name %></h3>
       </div>
-      
+    
       <div class="list-details">
+        <div class="trip-created-at">
+          <p>作成日:<%= l @list.created_at, format: :day  %></p>
+        </div>
         <div class="list-details-items">
           <% if @list.text.present? %>
             <div class="details-title">概要</div>
